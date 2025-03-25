@@ -1,0 +1,12 @@
+streamlit
+streamlit-chat
+rich
+langchain-core
+langchain-google-genai
+langchain-community
+datetime
+langchain-community
+langchain-experimental
+langchain-google-genai
+pypdf
+chromadb
