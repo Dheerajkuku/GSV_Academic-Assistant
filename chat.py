@@ -1,3 +1,8 @@
+# MUST BE THE VERY FIRST LINES IN THE FILE
+import sys
+__import__('pysqlite3')
+sys.modules['sqlite3'] = sys.modules.pop('pysqlite3')
+
 import streamlit as st
 import time
 import datetime
@@ -198,6 +203,15 @@ def main():
         db_connection = Chroma(
             persist_directory=PERSIST_DIR,
             embedding_function=embedding_model
+        )
+        db_connection = Chroma(
+            persist_directory=PERSIST_DIR,
+            embedding_function=embedding_model,
+            client_settings=chromadb.config.Settings(
+            is_persistent=True,
+            allow_reset=True,
+            anonymized_telemetry=False
+            )
         )
         return db_connection.as_retriever(search_kwargs={"k": 10})
 
