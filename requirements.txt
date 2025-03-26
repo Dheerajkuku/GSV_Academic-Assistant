@@ -10,3 +10,4 @@ langchain-experimental
 langchain-google-genai
 pypdf
 chromadb
+pysqlite3
